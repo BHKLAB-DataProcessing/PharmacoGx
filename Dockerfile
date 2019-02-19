@@ -5,7 +5,6 @@ USER root
 
 
 RUN apt-get update && apt-get install -y openssl libssl-dev curl libcurl4-openssl-dev libxml2-dev git
-RUN Rscript -e "install.packages('BiocManager')"
 RUN Rscript -e "library(BiocManager); install(c('AnnotationDbi','org.Hs.eg.db','annotate', 'genefilter', 'sva', 'dplyr', 'curl', 'openssl', 'git2r', 'httr', 'httpuv', 'devtools', 'XML'))" 
 RUN Rscript -e "install.packages('http://www.cbs.dtu.dk/biotools/jetset/current/jetset_3.4.0.tar.gz', repos = NULL, type = 'source')"
 RUN Rscript -e "install.packages('XML', repos = 'https://cran.r-project.org/')"
