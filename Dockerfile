@@ -4,8 +4,8 @@ USER root
 
 
 
-RUN apt-get update && apt-get install -y openssl libssl-dev curl libcurl4-openssl-dev libxml2-dev git
-RUN Rscript -e "library(BiocManager); install(c('AnnotationDbi','org.Hs.eg.db','annotate', 'genefilter', 'sva', 'dplyr', 'curl', 'openssl', 'git2r', 'httr', 'httpuv', 'devtools', 'XML'))" 
+RUN apt-get update && apt-get install -y openssl libssl-dev curl libcurl4-openssl-dev libxml2-dev git tcl tk 
+RUN Rscript -e "library(BiocManager); install(c('magicaxis','AnnotationDbi','org.Hs.eg.db','annotate', 'genefilter', 'sva', 'dplyr', 'curl', 'openssl', 'git2r', 'httr', 'httpuv', 'devtools', 'XML'))" 
 RUN Rscript -e "install.packages('http://www.cbs.dtu.dk/biotools/jetset/current/jetset_3.4.0.tar.gz', repos = NULL, type = 'source')"
 RUN Rscript -e "install.packages('XML', repos = 'https://cran.r-project.org/')"
 RUN Rscript -e "library(BiocManager); install(c('caTools', 'piano', 'downloader', 'RColorBrewer', 'magicaxis', 'WriteXLS', 'gdata', 'R.utils','Hmisc', 'affy', 'affxparser', 'affyio', 'frma', 'hthgu133afrmavecs', 'hthgu133acdf', 'hthgu133a.db', 'hgu133a.db', 'hgu133afrmavecs', 'hgu133plus2frmavecs', 'hgu133plus2.db','PharmacoGx', 'lsa'))"
