@@ -13,8 +13,10 @@ RUN Rscript -e "install.packages('readr')"
 RUN Rscript -e "install.packages('gdata')"
 RUN Rscript -e "install.packages('openxlsx')"
 RUN Rscript -e "install.packages('readxl')"
-RUN wget 'https://s3.amazonaws.com/anthtestpachy/PharmacoGxPrivate_0.0.1.tar.gz'
-RUN wget 'https://s3.amazonaws.com/anthtestpachy/CoreGx_0.0.001.tar.gz'
+RUN Rscript -e "install.packages('stringi')"
+RUN Rscript -e "install.packages('stringr')"
+RUN wget 'https://uhnbreast.blob.core.windows.net/docker/PharmacoGxPrivate_0.0.1.tar.gz'
+RUN wget 'https://uhnbreast.blob.core.windows.net/docker/CoreGx_0.0.001.tar.gz'
 RUN tar zxvf PharmacoGxPrivate_0.0.1.tar.gz
 RUN tar zxvf CoreGx_0.0.001.tar.gz
 RUN Rscript -e "library(devtools); install.packages('PharmacoGxPrivate_0.0.1.tar.gz', repos = NULL, type='source')"
