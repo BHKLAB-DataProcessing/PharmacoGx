@@ -15,10 +15,9 @@ RUN Rscript -e "install.packages('openxlsx')"
 RUN Rscript -e "install.packages('readxl')"
 RUN Rscript -e "install.packages('stringi')"
 RUN Rscript -e "install.packages('stringr')"
-RUN wget 'https://uhnbreast.blob.core.windows.net/docker/PharmacoGxPrivate_0.0.1.tar.gz'
-RUN wget 'https://uhnbreast.blob.core.windows.net/docker/CoreGx_0.0.001.tar.gz'
+RUN wget 'https://filesforpublic.blob.core.windows.net/pgxprivate/PharmacoGxPrivate_0.0.1.tar.gz'
 RUN tar zxvf PharmacoGxPrivate_0.0.1.tar.gz
-RUN tar zxvf CoreGx_0.0.001.tar.gz
+RUN Rscript -e "install.packages('CoreGx')"
 RUN Rscript -e "library(devtools); install.packages('PharmacoGxPrivate_0.0.1.tar.gz', repos = NULL, type='source')"
 RUN Rscript -e "library(devtools); install.packages('CoreGx_0.0.001.tar.gz', repos = NULL, type='source')"
 RUN Rscript -e "library(devtools); install_github('bhklab/genefu')"
