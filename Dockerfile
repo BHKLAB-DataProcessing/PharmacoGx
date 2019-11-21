@@ -15,9 +15,12 @@ RUN Rscript -e "install.packages('openxlsx')"
 RUN Rscript -e "install.packages('readxl')"
 RUN Rscript -e "install.packages('stringi')"
 RUN Rscript -e "install.packages('stringr')"
+RUN Rscript -e "install.packages('reshape2')"
 RUN wget 'https://filesforpublic.blob.core.windows.net/pgxprivate/PharmacoGxPrivate_0.0.1.tar.gz'
+RUN tar zxvf PharmacoGxPrivate_0.0.1.tar.gz
 RUN Rscript -e "install.packages('CoreGx')"
-RUN Rscript -e "library(devtools); install('PharmacoGxPrivate_0.0.1.tar.gz', dependencies=TRUE)"
+RUN Rscript -e "library(devtools); install.packages('PharmacoGxPrivate_0.0.1.tar.gz', repos = NULL, type='source')"
+RUN Rscript -e "library(devtools); install.packages('CoreGx_0.0.001.tar.gz', repos = NULL, type='source')"
 RUN Rscript -e "library(devtools); install_github('bhklab/genefu')"
 RUN Rscript -e "library(BiocManager); install('tximport')"
 RUN Rscript -e "library(BiocManager); install('rhdf5')"
