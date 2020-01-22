@@ -16,6 +16,7 @@ RUN Rscript -e "install.packages('readxl')"
 RUN Rscript -e "install.packages('stringi')"
 RUN Rscript -e "install.packages('stringr')"
 RUN Rscript -e "install.packages('reshape2')"
+RUN Rscript -e "install.packages('googledrive')"
 RUN wget 'https://filesforpublic.blob.core.windows.net/pgxprivate/PharmacoGxPrivate_0.0.1.tar.gz'
 RUN tar zxvf PharmacoGxPrivate_0.0.1.tar.gz
 RUN Rscript -e "install.packages('CoreGx')"
