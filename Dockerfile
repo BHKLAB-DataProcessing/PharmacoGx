@@ -3,7 +3,6 @@ FROM bioconductor/release_core2
 USER root
 
 
-
 RUN apt-get update && apt-get install -y openssl libssl-dev curl libcurl4-openssl-dev libxml2-dev git tcl tk 
 RUN Rscript -e "library(BiocManager); install(c('magicaxis','AnnotationDbi','org.Hs.eg.db','annotate', 'genefilter', 'sva', 'dplyr', 'curl', 'openssl', 'git2r', 'httr', 'httpuv', 'devtools', 'XML'))" 
 RUN Rscript -e "install.packages('http://www.cbs.dtu.dk/biotools/jetset/current/jetset_3.4.0.tar.gz', repos = NULL, type = 'source')"
@@ -17,6 +16,8 @@ RUN Rscript -e "install.packages('stringi')"
 RUN Rscript -e "install.packages('stringr')"
 RUN Rscript -e "install.packages('reshape2')"
 RUN Rscript -e "install.packages('googledrive')"
+RUN Rscript -e "install.packages('abind')"
+RUN Rscript -e "install.packages('data.table')"
 RUN wget 'https://filesforpublic.blob.core.windows.net/pgxprivate/PharmacoGxPrivate_0.0.1.tar.gz'
 RUN tar zxvf PharmacoGxPrivate_0.0.1.tar.gz
 RUN Rscript -e "install.packages('CoreGx')"
